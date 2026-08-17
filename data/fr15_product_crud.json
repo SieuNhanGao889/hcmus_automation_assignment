@@ -1,0 +1,780 @@
+[
+  {
+    "testCaseId": "FR15-DT-01",
+    "featureId": "FR-15",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR15_product_crud/domain_testing.md",
+    "partition": "EP-V-1, EP-V-7, EP-V-11, EP-V-15, EP-V-20, EP-V-22, EP-V-23, EP-V-24",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform create operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "create",
+      "role": "admin",
+      "name": "Product A",
+      "price": 100,
+      "category": "?i?n Tho?i"
+    },
+    "expectedResult": "Product is created successfully",
+    "expectedAutomation": {
+      "type": "createSuccess"
+    },
+    "hw2Evidence": {
+      "actualResult": "Product is created successfully",
+      "status": "PASS",
+      "bugId": ""
+    }
+  },
+  {
+    "testCaseId": "FR15-DT-02",
+    "featureId": "FR-15",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR15_product_crud/domain_testing.md",
+    "partition": "EP-V-2",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform view operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "view",
+      "role": "admin",
+      "productId": 1
+    },
+    "expectedResult": "Product details are displayed",
+    "expectedAutomation": {
+      "type": "viewSuccess"
+    },
+    "hw2Evidence": {
+      "actualResult": "Product details are displayed",
+      "status": "PASS",
+      "bugId": ""
+    }
+  },
+  {
+    "testCaseId": "FR15-DT-03",
+    "featureId": "FR-15",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR15_product_crud/domain_testing.md",
+    "partition": "EP-V-3, EP-V-9, EP-V-26",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform update operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "update",
+      "role": "admin",
+      "productId": 1,
+      "name": "Product A Updated",
+      "price": 150,
+      "category": "?i?n Tho?i"
+    },
+    "expectedResult": "Only selected product is updated",
+    "expectedAutomation": {
+      "type": "updateOneProductOnly"
+    },
+    "hw2Evidence": {
+      "actualResult": "Other products are affected in UI",
+      "status": "FAIL",
+      "bugId": "BUG-FR15-005"
+    }
+  },
+  {
+    "testCaseId": "FR15-DT-04",
+    "featureId": "FR-15",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR15_product_crud/domain_testing.md",
+    "partition": "EP-V-3",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform cancelUpdate operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "cancelUpdate",
+      "role": "admin",
+      "productId": 1,
+      "name": "Product A Updated"
+    },
+    "expectedResult": "Product is unchanged",
+    "expectedAutomation": {
+      "type": "cancelUpdateNoChange"
+    },
+    "hw2Evidence": {
+      "actualResult": "Product is unchanged",
+      "status": "PASS",
+      "bugId": ""
+    }
+  },
+  {
+    "testCaseId": "FR15-DT-05",
+    "featureId": "FR-15",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR15_product_crud/domain_testing.md",
+    "partition": "EP-I-3, EP-I-19",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform update operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "update",
+      "role": "admin",
+      "productId": 1,
+      "name": "Product A Updated",
+      "price": ""
+    },
+    "expectedResult": "Show invalid price error",
+    "expectedAutomation": {
+      "type": "priceError"
+    },
+    "hw2Evidence": {
+      "actualResult": "Update succeeds",
+      "status": "FAIL",
+      "bugId": "BUG-FR15-002"
+    }
+  },
+  {
+    "testCaseId": "FR15-DT-06",
+    "featureId": "FR-15",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR15_product_crud/domain_testing.md",
+    "partition": "EP-I-3, EP-I-16",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform update operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "update",
+      "role": "admin",
+      "productId": 1,
+      "name": "Product A Updated",
+      "price": -50
+    },
+    "expectedResult": "Show invalid price error",
+    "expectedAutomation": {
+      "type": "priceError"
+    },
+    "hw2Evidence": {
+      "actualResult": "Update succeeds",
+      "status": "FAIL",
+      "bugId": "BUG-FR15-003"
+    }
+  },
+  {
+    "testCaseId": "FR15-DT-07",
+    "featureId": "FR-15",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR15_product_crud/domain_testing.md",
+    "partition": "EP-I-3, EP-I-17",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform update operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "update",
+      "role": "admin",
+      "productId": 1,
+      "name": "Product A Updated",
+      "price": 0
+    },
+    "expectedResult": "Show invalid price error",
+    "expectedAutomation": {
+      "type": "priceError"
+    },
+    "hw2Evidence": {
+      "actualResult": "Update succeeds",
+      "status": "FAIL",
+      "bugId": "BUG-FR15-003"
+    }
+  },
+  {
+    "testCaseId": "FR15-DT-08",
+    "featureId": "FR-15",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR15_product_crud/domain_testing.md",
+    "partition": "EP-I-13",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform create operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "create",
+      "role": "admin",
+      "name": "   ",
+      "price": 100,
+      "category": "?i?n Tho?i"
+    },
+    "expectedResult": "Show invalid name error",
+    "expectedAutomation": {
+      "type": "nameError"
+    },
+    "hw2Evidence": {
+      "actualResult": "Product is created successfully",
+      "status": "FAIL",
+      "bugId": "BUG-FR15-001"
+    }
+  },
+  {
+    "testCaseId": "FR15-DT-09",
+    "featureId": "FR-15",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR15_product_crud/domain_testing.md",
+    "partition": "EP-V-4",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform delete operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "delete",
+      "role": "admin",
+      "productId": 1
+    },
+    "expectedResult": "Product is deleted successfully",
+    "expectedAutomation": {
+      "type": "deleteSuccess"
+    },
+    "hw2Evidence": {
+      "actualResult": "Product is deleted successfully",
+      "status": "PASS",
+      "bugId": ""
+    }
+  },
+  {
+    "testCaseId": "FR15-DT-10",
+    "featureId": "FR-15",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR15_product_crud/domain_testing.md",
+    "partition": "EP-I-3",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform update operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "update",
+      "role": "admin",
+      "productId": 1,
+      "name": "Product A Updated",
+      "price": 150
+    },
+    "expectedResult": "Updated data is visible in product list",
+    "expectedAutomation": {
+      "type": "listReflectsUpdate"
+    },
+    "hw2Evidence": {
+      "actualResult": "List does not refresh automatically",
+      "status": "FAIL",
+      "bugId": "BUG-FR15-006"
+    }
+  },
+  {
+    "testCaseId": "FR15-DT-11",
+    "featureId": "FR-15",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR15_product_crud/domain_testing.md",
+    "partition": "EP-I-12",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform create operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "create",
+      "role": "admin",
+      "name": "",
+      "price": 100,
+      "category": "?i?n Tho?i"
+    },
+    "expectedResult": "Show invalid name error",
+    "expectedAutomation": {
+      "type": "requiredField",
+      "field": "name"
+    },
+    "hw2Evidence": {
+      "actualResult": "Shows invalid name error",
+      "status": "PASS",
+      "bugId": ""
+    }
+  },
+  {
+    "testCaseId": "FR15-DT-12",
+    "featureId": "FR-15",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR15_product_crud/domain_testing.md",
+    "partition": "EP-I-13",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform create operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "create",
+      "role": "admin",
+      "name": "   ",
+      "price": 100,
+      "category": "?i?n Tho?i"
+    },
+    "expectedResult": "Show invalid name error",
+    "expectedAutomation": {
+      "type": "nameError"
+    },
+    "hw2Evidence": {
+      "actualResult": "Product is created successfully",
+      "status": "FAIL",
+      "bugId": "BUG-FR15-001"
+    }
+  },
+  {
+    "testCaseId": "FR15-DT-13",
+    "featureId": "FR-15",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR15_product_crud/domain_testing.md",
+    "partition": "EP-I-14",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform create operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "create",
+      "role": "admin",
+      "name": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "price": 100,
+      "category": "?i?n Tho?i"
+    },
+    "expectedResult": "Show name too long error",
+    "expectedAutomation": {
+      "type": "nameTooLongError"
+    },
+    "hw2Evidence": {
+      "actualResult": "Product is displayed in list",
+      "status": "FAIL",
+      "bugId": "BUG-FR15-004"
+    }
+  },
+  {
+    "testCaseId": "FR15-DT-14",
+    "featureId": "FR-15",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR15_product_crud/domain_testing.md",
+    "partition": "EP-I-17",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform create operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "create",
+      "role": "admin",
+      "name": "Product A",
+      "price": 0,
+      "category": "?i?n Tho?i"
+    },
+    "expectedResult": "Show invalid price error",
+    "expectedAutomation": {
+      "type": "priceError"
+    },
+    "hw2Evidence": {
+      "actualResult": "Product is created successfully",
+      "status": "FAIL",
+      "bugId": "BUG-FR15-003"
+    }
+  },
+  {
+    "testCaseId": "FR15-DT-15",
+    "featureId": "FR-15",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR15_product_crud/domain_testing.md",
+    "partition": "EP-I-16",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform create operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "create",
+      "role": "admin",
+      "name": "Product A",
+      "price": -50,
+      "category": "?i?n Tho?i"
+    },
+    "expectedResult": "Show invalid price error",
+    "expectedAutomation": {
+      "type": "priceError"
+    },
+    "hw2Evidence": {
+      "actualResult": "Product is created successfully",
+      "status": "FAIL",
+      "bugId": "BUG-FR15-003"
+    }
+  },
+  {
+    "testCaseId": "FR15-DT-16",
+    "featureId": "FR-15",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR15_product_crud/domain_testing.md",
+    "partition": "EP-I-18",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform create operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "create",
+      "role": "admin",
+      "name": "Product A",
+      "price": "abc",
+      "category": "?i?n Tho?i"
+    },
+    "expectedResult": "Show invalid price error",
+    "expectedAutomation": {
+      "type": "numberInputBlocksInvalid"
+    },
+    "hw2Evidence": {
+      "actualResult": "Number input blocks non-numeric value",
+      "status": "PASS",
+      "bugId": ""
+    }
+  },
+  {
+    "testCaseId": "FR15-DT-17",
+    "featureId": "FR-15",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR15_product_crud/domain_testing.md",
+    "partition": "EP-I-19",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform create operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "create",
+      "role": "admin",
+      "name": "Product A",
+      "price": "",
+      "category": "?i?n Tho?i"
+    },
+    "expectedResult": "Show invalid price error",
+    "expectedAutomation": {
+      "type": "priceError"
+    },
+    "hw2Evidence": {
+      "actualResult": "Product is created successfully",
+      "status": "FAIL",
+      "bugId": "BUG-FR15-002"
+    }
+  },
+  {
+    "testCaseId": "FR15-BVA-01",
+    "featureId": "FR-15",
+    "technique": "BVA",
+    "sourceFile": "hw2_features/features/FR15_product_crud/bva.md",
+    "partition": "EP-I-26",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform create operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "create",
+      "role": "admin",
+      "name": "",
+      "price": 100,
+      "category": "?i?n Tho?i"
+    },
+    "expectedResult": "Show required name error",
+    "expectedAutomation": {
+      "type": "requiredField",
+      "field": "name"
+    },
+    "hw2Evidence": {
+      "actualResult": "Browser required-field validation is shown",
+      "status": "PASS",
+      "bugId": ""
+    }
+  },
+  {
+    "testCaseId": "FR15-BVA-02",
+    "featureId": "FR-15",
+    "technique": "BVA",
+    "sourceFile": "hw2_features/features/FR15_product_crud/bva.md",
+    "partition": "EP-V-27",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform create operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "create",
+      "role": "admin",
+      "name": "A",
+      "price": 100,
+      "category": "?i?n Tho?i"
+    },
+    "expectedResult": "Product is created successfully",
+    "expectedAutomation": {
+      "type": "createSuccess"
+    },
+    "hw2Evidence": {
+      "actualResult": "Product is displayed in list",
+      "status": "PASS",
+      "bugId": ""
+    }
+  },
+  {
+    "testCaseId": "FR15-BVA-03",
+    "featureId": "FR-15",
+    "technique": "BVA",
+    "sourceFile": "hw2_features/features/FR15_product_crud/bva.md",
+    "partition": "EP-V-28",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform create operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "create",
+      "role": "admin",
+      "name": "AB",
+      "price": 100,
+      "category": "?i?n Tho?i"
+    },
+    "expectedResult": "Product is created successfully",
+    "expectedAutomation": {
+      "type": "createSuccess"
+    },
+    "hw2Evidence": {
+      "actualResult": "Product is displayed in list",
+      "status": "PASS",
+      "bugId": ""
+    }
+  },
+  {
+    "testCaseId": "FR15-BVA-04",
+    "featureId": "FR-15",
+    "technique": "BVA",
+    "sourceFile": "hw2_features/features/FR15_product_crud/bva.md",
+    "partition": "EP-V-29",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform create operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "create",
+      "role": "admin",
+      "name": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "price": 100,
+      "category": "?i?n Tho?i"
+    },
+    "expectedResult": "Product is created successfully",
+    "expectedAutomation": {
+      "type": "createSuccess"
+    },
+    "hw2Evidence": {
+      "actualResult": "Product is displayed in list",
+      "status": "PASS",
+      "bugId": ""
+    }
+  },
+  {
+    "testCaseId": "FR15-BVA-05",
+    "featureId": "FR-15",
+    "technique": "BVA",
+    "sourceFile": "hw2_features/features/FR15_product_crud/bva.md",
+    "partition": "EP-V-30",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform create operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "create",
+      "role": "admin",
+      "name": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "price": 100,
+      "category": "?i?n Tho?i"
+    },
+    "expectedResult": "Product is created successfully",
+    "expectedAutomation": {
+      "type": "createSuccess"
+    },
+    "hw2Evidence": {
+      "actualResult": "Product is displayed in list",
+      "status": "PASS",
+      "bugId": ""
+    }
+  },
+  {
+    "testCaseId": "FR15-BVA-06",
+    "featureId": "FR-15",
+    "technique": "BVA",
+    "sourceFile": "hw2_features/features/FR15_product_crud/bva.md",
+    "partition": "EP-I-31",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform create operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "create",
+      "role": "admin",
+      "name": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "price": 100,
+      "category": "?i?n Tho?i"
+    },
+    "expectedResult": "Show name too long error",
+    "expectedAutomation": {
+      "type": "nameTooLongError"
+    },
+    "hw2Evidence": {
+      "actualResult": "Product is displayed in list",
+      "status": "FAIL",
+      "bugId": "BUG-FR15-004"
+    }
+  },
+  {
+    "testCaseId": "FR15-BVA-07",
+    "featureId": "FR-15",
+    "technique": "BVA",
+    "sourceFile": "hw2_features/features/FR15_product_crud/bva.md",
+    "partition": "EP-I-32",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform create operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "create",
+      "role": "admin",
+      "name": "Product A",
+      "price": 0,
+      "category": "?i?n Tho?i"
+    },
+    "expectedResult": "Show price must be greater than 0",
+    "expectedAutomation": {
+      "type": "priceError"
+    },
+    "hw2Evidence": {
+      "actualResult": "Product is displayed in list",
+      "status": "FAIL",
+      "bugId": "BUG-FR15-003"
+    }
+  },
+  {
+    "testCaseId": "FR15-BVA-08",
+    "featureId": "FR-15",
+    "technique": "BVA",
+    "sourceFile": "hw2_features/features/FR15_product_crud/bva.md",
+    "partition": "EP-V-33",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform create operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "create",
+      "role": "admin",
+      "name": "Product A",
+      "price": 0.1,
+      "category": "?i?n Tho?i"
+    },
+    "expectedResult": "Product is created successfully",
+    "expectedAutomation": {
+      "type": "createSuccess"
+    },
+    "hw2Evidence": {
+      "actualResult": "Product is displayed in list",
+      "status": "PASS",
+      "bugId": ""
+    }
+  },
+  {
+    "testCaseId": "FR15-BVA-09",
+    "featureId": "FR-15",
+    "technique": "BVA",
+    "sourceFile": "hw2_features/features/FR15_product_crud/bva.md",
+    "partition": "EP-V-34",
+    "precondition": "Admin is logged in and product/category fixtures are available.",
+    "steps": [
+      "Open the admin product management page.",
+      "Perform create operation with the specified product data.",
+      "Submit or confirm the operation when applicable.",
+      "Observe the product list, product detail, validation message, or browser validation state."
+    ],
+    "testData": {
+      "operation": "create",
+      "role": "admin",
+      "name": "Product A",
+      "price": 0.2,
+      "category": "?i?n Tho?i"
+    },
+    "expectedResult": "Product is created successfully",
+    "expectedAutomation": {
+      "type": "createSuccess"
+    },
+    "hw2Evidence": {
+      "actualResult": "Product is displayed in list",
+      "status": "PASS",
+      "bugId": ""
+    }
+  }
+]

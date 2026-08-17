@@ -1,0 +1,391 @@
+[
+  {
+    "testCaseId": "FR09-DT-01",
+    "featureId": "FR-09",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR09_discount_coupons/domain_testing.md",
+    "partition": "EP-V-01, EP-V-02, EP-V-05, EP-V-07, EP-V-09, EP-V-11, EP-V-14, EP-I-16, EP-I-13",
+    "precondition": "Logged-in user is on Checkout page with order total 28000000 VND.",
+    "steps": [
+      "Open the cart page.",
+      "Proceed to checkout.",
+      "Enter coupon code SAVE10.",
+      "Click Apply."
+    ],
+    "testData": {
+      "code": "SAVE10",
+      "total_amount": 28000000,
+      "loggedIn": true
+    },
+    "expectedResult": "Apply successfully, discount 10%, final total 25,200,000 VND.",
+    "expectedAutomation": {
+      "type": "success",
+      "discountText": "2,800,000",
+      "finalText": "25,200,000"
+    },
+    "hw2Evidence": {
+      "actualResult": "Applies with wrong saving and final amount",
+      "status": "FAIL",
+      "bugId": "BUG-FR09-001"
+    }
+  },
+  {
+    "testCaseId": "FR09-DT-02",
+    "featureId": "FR-09",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR09_discount_coupons/domain_testing.md",
+    "partition": "EP-I-12",
+    "precondition": "Logged-in user is on Checkout page with order total 28000000 VND.",
+    "steps": [
+      "Open the cart page.",
+      "Proceed to checkout.",
+      "Enter coupon code BIGBUY.",
+      "Click Apply."
+    ],
+    "testData": {
+      "code": "BIGBUY",
+      "total_amount": 28000000,
+      "loggedIn": true
+    },
+    "expectedResult": "Apply fixed discount 50,000 VND.",
+    "expectedAutomation": {
+      "type": "success",
+      "discountText": "50,000",
+      "finalText": "27,950,000"
+    },
+    "hw2Evidence": {
+      "actualResult": "Applies correctly",
+      "status": "PASS",
+      "bugId": ""
+    }
+  },
+  {
+    "testCaseId": "FR09-DT-03",
+    "featureId": "FR-09",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR09_discount_coupons/domain_testing.md",
+    "partition": "EP-I-03, EP-I-17",
+    "precondition": "Logged-in user is on Checkout page with order total 28000000 VND and coupon EXPIRED exists.",
+    "steps": [
+      "Open the cart page.",
+      "Proceed to checkout.",
+      "Enter coupon code EXPIRED.",
+      "Click Apply."
+    ],
+    "testData": {
+      "code": "EXPIRED",
+      "total_amount": 28000000,
+      "loggedIn": true
+    },
+    "expectedResult": "Show expired coupon error.",
+    "expectedAutomation": {
+      "type": "error",
+      "messagePattern": "h.{1,8}t h.{1,8}n"
+    },
+    "hw2Evidence": {
+      "actualResult": "Shows expired coupon error",
+      "status": "PASS",
+      "bugId": ""
+    }
+  },
+  {
+    "testCaseId": "FR09-DT-04",
+    "featureId": "FR-09",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR09_discount_coupons/domain_testing.md",
+    "partition": "EP-I-04",
+    "precondition": "Logged-in user is on Checkout page with order total 28000000 VND.",
+    "steps": [
+      "Open the cart page.",
+      "Proceed to checkout.",
+      "Enter coupon code UNKNOWN.",
+      "Click Apply."
+    ],
+    "testData": {
+      "code": "UNKNOWN",
+      "total_amount": 28000000,
+      "loggedIn": true
+    },
+    "expectedResult": "Show coupon not found error.",
+    "expectedAutomation": {
+      "type": "error",
+      "messagePattern": "kh.{1,12}ng t.{1,8}n t|v.{1,8} hi.{1,8}u"
+    },
+    "hw2Evidence": {
+      "actualResult": "Shows coupon not found/disabled error",
+      "status": "PASS",
+      "bugId": ""
+    }
+  },
+  {
+    "testCaseId": "FR09-DT-05",
+    "featureId": "FR-09",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR09_discount_coupons/domain_testing.md",
+    "partition": "EP-I-06",
+    "precondition": "Logged-in user is on Checkout page with order total 200000 VND and coupon TEST exists with minimum order above this total.",
+    "steps": [
+      "Open the cart page.",
+      "Proceed to checkout.",
+      "Enter coupon code TEST.",
+      "Click Apply."
+    ],
+    "testData": {
+      "code": "TEST",
+      "total_amount": 200000,
+      "loggedIn": true
+    },
+    "expectedResult": "Show minimum order amount error.",
+    "expectedAutomation": {
+      "type": "error",
+      "messagePattern": "30,000,000"
+    },
+    "hw2Evidence": {
+      "actualResult": "Shows minimum order amount error",
+      "status": "PASS",
+      "bugId": ""
+    }
+  },
+  {
+    "testCaseId": "FR09-DT-06",
+    "featureId": "FR-09",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR09_discount_coupons/domain_testing.md",
+    "partition": "EP-I-10",
+    "precondition": "Logged-in user has already used SAVE10 once and is on Checkout page.",
+    "steps": [
+      "Open the cart page.",
+      "Proceed to checkout.",
+      "Use a user who already applied SAVE10 once.",
+      "Enter coupon code SAVE10.",
+      "Click Apply."
+    ],
+    "testData": {
+      "code": "SAVE10",
+      "total_amount": 28000000,
+      "loggedIn": true,
+      "preUsedCount": 1
+    },
+    "expectedResult": "Show max usage reached error.",
+    "expectedAutomation": {
+      "type": "error",
+      "messagePattern": "1 l.{1,8}n|gi.{1,8}i h.{1,8}n"
+    },
+    "hw2Evidence": {
+      "actualResult": "Shows max usage reached error",
+      "status": "PASS",
+      "bugId": ""
+    }
+  },
+  {
+    "testCaseId": "FR09-DT-07",
+    "featureId": "FR-09",
+    "technique": "Domain Testing",
+    "sourceFile": "hw2_features/features/FR09_discount_coupons/domain_testing.md",
+    "partition": "EP-I-15",
+    "precondition": "Logged-in user is on Checkout page and coupon NEW10 exists with a fixed discount larger than the order total.",
+    "steps": [
+      "Open the cart page.",
+      "Proceed to checkout.",
+      "Enter coupon code NEW10.",
+      "Click Apply."
+    ],
+    "testData": {
+      "code": "NEW10",
+      "total_amount": 28000000,
+      "loggedIn": true
+    },
+    "expectedResult": "Final amount should not become negative.",
+    "expectedAutomation": {
+      "type": "nonNegativeFinal"
+    },
+    "hw2Evidence": {
+      "actualResult": "Final amount becomes negative",
+      "status": "FAIL",
+      "bugId": "BUG-FR09-003"
+    }
+  },
+  {
+    "testCaseId": "FR09-BVA-01",
+    "featureId": "FR-09",
+    "technique": "BVA",
+    "sourceFile": "hw2_features/features/FR09_discount_coupons/bva.md",
+    "partition": "EP-I-19",
+    "precondition": "Logged-in user is on Checkout page with total amount 280000001 VND and coupon TEST3 exists.",
+    "steps": [
+      "Open the cart page.",
+      "Proceed to checkout.",
+      "Enter coupon code TEST3.",
+      "Click Apply."
+    ],
+    "testData": {
+      "code": "TEST3",
+      "total_amount": 280000001,
+      "loggedIn": true
+    },
+    "expectedResult": "Show minimum order amount error.",
+    "expectedAutomation": {
+      "type": "error",
+      "messagePattern": "280,000,001"
+    },
+    "hw2Evidence": {
+      "actualResult": "Shows minimum order amount error",
+      "status": "PASS",
+      "bugId": ""
+    }
+  },
+  {
+    "testCaseId": "FR09-BVA-02",
+    "featureId": "FR-09",
+    "technique": "BVA",
+    "sourceFile": "hw2_features/features/FR09_discount_coupons/bva.md",
+    "partition": "EP-V-18",
+    "precondition": "Logged-in user is on Checkout page with total amount 28000000 VND and coupon TEST1 exists at the minimum-order boundary.",
+    "steps": [
+      "Open the cart page.",
+      "Proceed to checkout.",
+      "Enter coupon code TEST1.",
+      "Click Apply."
+    ],
+    "testData": {
+      "code": "TEST1",
+      "total_amount": 28000000,
+      "loggedIn": true
+    },
+    "expectedResult": "Apply successfully at boundary.",
+    "expectedAutomation": {
+      "type": "success",
+      "discountText": "10,000",
+      "finalText": "27,990,000"
+    },
+    "hw2Evidence": {
+      "actualResult": "Shows minimum order amount error",
+      "status": "FAIL",
+      "bugId": "BUG-FR09-002"
+    }
+  },
+  {
+    "testCaseId": "FR09-BVA-03",
+    "featureId": "FR-09",
+    "technique": "BVA",
+    "sourceFile": "hw2_features/features/FR09_discount_coupons/bva.md",
+    "partition": "EP-V-17",
+    "precondition": "Logged-in user is on Checkout page with total amount 27999999 VND and coupon TEST2 exists.",
+    "steps": [
+      "Open the cart page.",
+      "Proceed to checkout.",
+      "Enter coupon code TEST2.",
+      "Click Apply."
+    ],
+    "testData": {
+      "code": "TEST2",
+      "total_amount": 27999999,
+      "loggedIn": true
+    },
+    "expectedResult": "Apply successfully.",
+    "expectedAutomation": {
+      "type": "success",
+      "discountText": "10,000",
+      "finalText": "27,989,999"
+    },
+    "hw2Evidence": {
+      "actualResult": "Applies successfully",
+      "status": "PASS",
+      "bugId": ""
+    }
+  },
+  {
+    "testCaseId": "FR09-BVA-04",
+    "featureId": "FR-09",
+    "technique": "BVA",
+    "sourceFile": "hw2_features/features/FR09_discount_coupons/bva.md",
+    "partition": "EP-V-20",
+    "precondition": "Logged-in user is using coupon VIP100 for the first time with total amount 300000 VND.",
+    "steps": [
+      "Open the cart page.",
+      "Proceed to checkout.",
+      "Use a user applying VIP100 for the first tracked use.",
+      "Enter coupon code VIP100.",
+      "Click Apply."
+    ],
+    "testData": {
+      "code": "VIP100",
+      "total_amount": 300000,
+      "loggedIn": true,
+      "preUsedCount": 0
+    },
+    "expectedResult": "Apply successfully at lower usage boundary.",
+    "expectedAutomation": {
+      "type": "success",
+      "discountText": "100,000",
+      "finalText": "200,000"
+    },
+    "hw2Evidence": {
+      "actualResult": "Applies successfully",
+      "status": "PASS",
+      "bugId": ""
+    }
+  },
+  {
+    "testCaseId": "FR09-BVA-05",
+    "featureId": "FR-09",
+    "technique": "BVA",
+    "sourceFile": "hw2_features/features/FR09_discount_coupons/bva.md",
+    "partition": "EP-V-21",
+    "precondition": "Logged-in user has used VIP100 once and is applying it for the second time with total amount 300000 VND.",
+    "steps": [
+      "Open the cart page.",
+      "Proceed to checkout.",
+      "Use a user at the configured usage boundary for VIP100.",
+      "Enter coupon code VIP100.",
+      "Click Apply."
+    ],
+    "testData": {
+      "code": "VIP100",
+      "total_amount": 300000,
+      "loggedIn": true,
+      "preUsedCount": 1
+    },
+    "expectedResult": "Show max usage reached error.",
+    "expectedAutomation": {
+      "type": "error",
+      "messagePattern": "1 l.{1,8}n|gi.{1,8}i h.{1,8}n"
+    },
+    "hw2Evidence": {
+      "actualResult": "Shows max usage reached error",
+      "status": "PASS",
+      "bugId": ""
+    }
+  },
+  {
+    "testCaseId": "FR09-BVA-06",
+    "featureId": "FR-09",
+    "technique": "BVA",
+    "sourceFile": "hw2_features/features/FR09_discount_coupons/bva.md",
+    "partition": "EP-I-22",
+    "precondition": "Logged-in user has used VIP100 twice and is applying it for the third time with total amount 300000 VND.",
+    "steps": [
+      "Open the cart page.",
+      "Proceed to checkout.",
+      "Use a user beyond the configured usage boundary for VIP100.",
+      "Enter coupon code VIP100.",
+      "Click Apply."
+    ],
+    "testData": {
+      "code": "VIP100",
+      "total_amount": 300000,
+      "loggedIn": true,
+      "preUsedCount": 2
+    },
+    "expectedResult": "Show max usage reached error.",
+    "expectedAutomation": {
+      "type": "error",
+      "messagePattern": "2 l.{1,8}n|gi.{1,8}i h.{1,8}n"
+    },
+    "hw2Evidence": {
+      "actualResult": "Shows max usage reached error",
+      "status": "PASS",
+      "bugId": ""
+    }
+  }
+]
