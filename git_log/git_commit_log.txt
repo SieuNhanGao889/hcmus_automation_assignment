@@ -1,4 +1,65 @@
-﻿commit fbd7bbc45309a330e54ed211ee455a883352c454
+﻿commit 4bda9dfff6f53a539fa3863fd0c14bf869d1cb97
+Author: SieuNhanGao889 <dnthieu23@clc.fitus.edu.vn>
+Date: 2026-08-18 02:15:40 +0700
+
+    Add demo video link
+
+ agent_skills/demo_video_links.md | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+commit 439f0df8c56aa5b602150fe2ac297f901123213f
+Author: SieuNhanGao889 <dnthieu23@clc.fitus.edu.vn>
+Date: 2026-08-18 02:15:13 +0700
+
+    Add video demo link
+
+ README.md                        |   2 +-
+ agent_skills/demo_video_links.md |   6 ++----
+ reports/main_report.md           |   3 +++
+ reports/main_report.pdf          | Bin 108558 -> 109608 bytes
+ 4 files changed, 6 insertions(+), 5 deletions(-)
+
+commit bf649c05d8bfbb31d065650852dd4399df5a56aa
+Author: SieuNhanGao889 <dnthieu23@clc.fitus.edu.vn>
+Date: 2026-08-18 01:23:22 +0700
+
+    Add github issues
+
+ README.md                                |  25 +--
+ bug_reports/bug_report.md                |  26 +--
+ bug_reports/github_issue_descriptions.md | 298 -------------------------------
+ bug_reports/github_issues.png            | Bin 0 -> 182862 bytes
+ tests/fr09_discount_coupons.spec.js      |   3 +-
+ 5 files changed, 23 insertions(+), 329 deletions(-)
+
+commit 6a82d971941cd03d3326eae97d28ab3949c61a08
+Author: SieuNhanGao889 <dnthieu23@clc.fitus.edu.vn>
+Date: 2026-08-18 01:00:52 +0700
+
+    Document human review fix in FR09 spec
+
+ tests/fr09_discount_coupons.spec.js | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 705764a0cc56be089d85e9938ac9ce2015fc931a
+Author: SieuNhanGao889 <dnthieu23@clc.fitus.edu.vn>
+Date: 2026-08-18 00:59:32 +0700
+
+    Add GitHub issue descriptions
+
+ bug_reports/github_issue_descriptions.md | 298 +++++++++++++++++++++++++++++++
+ 1 file changed, 298 insertions(+)
+
+commit a17a87d8fe9e05b3c0ae669a8b7b22a9cbbe6ce1
+Author: SieuNhanGao889 <dnthieu23@clc.fitus.edu.vn>
+Date: 2026-08-18 00:40:49 +0700
+
+    Add git commit log
+
+ git_log/git_commit_log.txt | 267 +++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 267 insertions(+)
+
+commit fbd7bbc45309a330e54ed211ee455a883352c454
 Author: SieuNhanGao889 <dnthieu23@clc.fitus.edu.vn>
 Date: 2026-08-18 00:39:28 +0700
 
