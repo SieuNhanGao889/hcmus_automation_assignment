@@ -36,15 +36,17 @@
 
 | Bug ID | GitHub Issue |
 |---|---|
-| BUG-FR03-001 | TBD |
-| BUG-FR03-002 | TBD |
-| BUG-FR03-003 | TBD |
-| BUG-FR03-004 | TBD |
-| BUG-FR09-001 | TBD |
-| BUG-FR09-002 | TBD |
-| BUG-FR09-003 | TBD |
-| BUG-FR15-001 | TBD |
-| BUG-FR15-002 | TBD |
-| BUG-FR15-003 | TBD |
-| BUG-FR15-004 | TBD |
-| BUG-FR15-005 | TBD |
+| BUG-FR03-001 | [1](https://github.com/SieuNhanGao889/hcmus_automation_assignment/issues/1) |
+| BUG-FR03-002 | [2](https://github.com/SieuNhanGao889/hcmus_automation_assignment/issues/2) |
+| BUG-FR03-003 | [3](https://github.com/SieuNhanGao889/hcmus_automation_assignment/issues/3) |
+| BUG-FR03-004 | [4](https://github.com/SieuNhanGao889/hcmus_automation_assignment/issues/4) |
+| BUG-FR09-001 | [5](https://github.com/SieuNhanGao889/hcmus_automation_assignment/issues/5) |
+| BUG-FR09-002 | [6](https://github.com/SieuNhanGao889/hcmus_automation_assignment/issues/6) |
+| BUG-FR09-003 | [7](https://github.com/SieuNhanGao889/hcmus_automation_assignment/issues/7) |
+| BUG-FR15-001 | [8](https://github.com/SieuNhanGao889/hcmus_automation_assignment/issues/8) |
+| BUG-FR15-002 | [9](https://github.com/SieuNhanGao889/hcmus_automation_assignment/issues/9) |
+| BUG-FR15-003 | [10](https://github.com/SieuNhanGao889/hcmus_automation_assignment/issues/10) |
+| BUG-FR15-004 | [11](https://github.com/SieuNhanGao889/hcmus_automation_assignment/issues/11) |
+| BUG-FR15-005 | [12](https://github.com/SieuNhanGao889/hcmus_automation_assignment/issues/12) |
+
+- Github Issue ảnh minh họa: ![github_issue_screenshot.png](github_issues.png)

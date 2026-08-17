@@ -62,14 +62,14 @@
 |   |-- fr09_discount_coupons.spec.js
 |   `-- fr15_product_crud.spec.js
 |-- reports/
-|   |-- main_report.md
-|   |-- ai_audit_report.md
+|   |-- main_report.md                                         <- MAIN REPORT
+|   |-- ai_audit_report.md                                     
 |   |-- ai_critique.md
-|   |-- playwright-fr03-report/
-|   |-- playwright-fr09-report/
-|   `-- playwright-fr15-report/
+|   |-- playwright-fr03-report/                                <- PLAYWRIGHT REPORT FOR FR-03
+|   |-- playwright-fr09-report/                                <- PLAYWRIGHT REPORT FOR FR-09
+|   `-- playwright-fr15-report/                                <- PLAYWRIGHT REPORT FOR FR-15
 |-- bug_reports/
-|   `-- bug_report.md
+|   `-- bug_report.md                                          <- BUG REPORT
 |-- hw2_features/
 |   |-- test_cases_summary.md
 |   `-- features/
@@ -100,16 +100,7 @@ Mở report gần nhất:
 npm run report
 ```
 
-## Bằng Chứng Và Links
+## Minh chứng
 
-- Data test: `data/`
-- Automation script: `tests/`
-- Playwright reports: `reports/playwright-fr03-report/`, `reports/playwright-fr09-report/`, `reports/playwright-fr15-report/`
-- Screenshot bug đại diện: `screenshots/`
-- Bug report và GitHub Issue links: `bug_reports/bug_report.md`
 - Demo video links: `agent_skills/demo_video_links.md`
-- Git log: `git_log/git_commit_log.txt`
-
-## Ghi Chú Phạm Vi
-
-`EShop-source/` chỉ dùng làm SUT để chạy kiểm thử. Bài này không sửa source code của SUT và không đưa `EShop-source/` vào phần nộp.
+- Github: https://github.com/SieuNhanGao889/hcmus_automation_assignment.git

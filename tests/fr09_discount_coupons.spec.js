@@ -99,8 +99,7 @@ function couponError(page) {
   return page.locator('p').filter({ hasText: /./ }).last();
 }
 
-// Human review fix: removed test.describe.serial from the AI-generated script.
-// Coupon bugs must not stop later HW02 cases from running; every data row should execute so the report keeps full pass/fail coverage.
+// test.describe.serial('FR-09 Discount Coupons - HW02 data-driven automation', () => {
 test.describe('FR-09 Discount Coupons - HW02 data-driven automation', () => {
   let api;
 
