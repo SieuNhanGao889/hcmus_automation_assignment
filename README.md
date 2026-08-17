@@ -102,5 +102,5 @@ npm run report
 
 ## Minh chứng
 
-- Demo video links: `agent_skills/demo_video_links.md`
+- Demo video links: https://youtu.be/lVbM7c85nmQ
 - Github: https://github.com/SieuNhanGao889/hcmus_automation_assignment.git

@@ -62,3 +62,6 @@ Mỗi report có banner `Run by: 23127364` và ISO timestamp để minh chứng.
 | FR-15 | BUG-FR15-004 | Tên dài hơn 255 ký tự vẫn được tạo |
 | FR-15 | BUG-FR15-005 | Cập nhật một sản phẩm ảnh hưởng nhiều dòng trong UI |
 
+## Demo video 
+- Video link: https://youtu.be/lVbM7c85nmQ
+
