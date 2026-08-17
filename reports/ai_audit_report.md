@@ -1,0 +1,12 @@
+# Appendix - AI Audit Report
+
+I use AI tools for the following tasks,
+
+| STT | Name of AI tool | Date and time | Prompt / yêu cầu đã dùng | AI output | Kiểm chứng / chỉnh sửa của sinh viên |
+|---:|---|---|---|---|---|
+| 1 | ChatGPT | 2026-08-15, 20h20 | Tóm tắt yêu cầu đề bài HW04 Automation Testing, phân biệt yêu cầu trong file đính kèm với yêu cầu của sinh viên. | Tóm tắt phạm vi bài, các deliverables cần có, yêu cầu Playwright/Selenium, report, AI audit và agent skills. | Đọc lại file đề gốc do giảng viên cung cấp; chỉ dùng summary AI để đọc nhanh, không dùng thay yêu cầu chính thức. |
+| 2 | ChatGPT/Codex | 2026-08-15, 22h30 | Từ kết quả HW02, tạo cấu trúc folder chuẩn cho HW04 và không đưa `EShop-source/` vào phần nộp. | Tạo/cập nhật cấu trúc thư mục, `.gitignore`, README ban đầu và guideline trong `AGENTS.md`. | Kiểm tra `.gitignore` để loại `EShop-source/`, `node_modules/`, `test-results/`, `playwright-report/`; chỉ giữ các file cần nộp. |
+| 3 | ChatGPT/Codex | 2026-08-16, 01h30 | Sinh automation Playwright cho FR-09 dựa trên test case HW02, chỉ làm FR-09 trong prompt quay demo. | Tạo `data/fr09_discount_coupons.json`, `tests/fr09_discount_coupons.spec.js`, Playwright config và report. | Chạy UI thật 13 case x 3 browser; sửa `serial`, đặt `workers: 1`, kiểm tra oracle số tiền và xác nhận 3 bug FR-09. |
+| 4 | ChatGPT/Codex | 2026-08-16, 09h30 | Sinh automation Playwright cho FR-03 và FR-15 từ test case HW02 đã đưa vào `hw2_features/`. | Tạo `data/fr03_forgot_password.json`, `data/fr15_product_crud.json`, `tests/fr03_forgot_password.spec.js`, `tests/fr15_product_crud.spec.js`. | Kiểm tra flow setup user/product, selector, assertion, DB/UI state; không sửa source code SUT. |
+| 5 | ChatGPT/Codex + Playwright | 2026-08-17, 22h30 | Chạy nốt 3 feature trên Chromium, Firefox, WebKit và tổng hợp kết quả. | Sinh HTML report riêng cho FR-03, FR-09, FR-15; tạo screenshot lỗi đại diện. | Đối chiếu số liệu: 62 test case, 186 browser executions, 105 pass, 81 fail, 12 bug unique được automation xác nhận. |
+| 6 | ChatGPT/Codex | 2026-08-18, 01h30 | Cập nhật báo cáo tiếng Việt, bug report, test case summary có thêm test steps/test data và cây thư mục README. | Cập nhật `README.md`, `reports/main_report.md`, `bug_reports/bug_report.md`, `reports/ai_critique.md`, `hw2_features/test_cases_summary.md`. | Rà lại nội dung để audit tập trung vào tính đúng đắn automation, bug finding và yêu cầu nộp bài; không ghi AI là nguồn yêu cầu chính thức. |
